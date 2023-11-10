@@ -7,7 +7,7 @@ Are you tired of using RODE Central to copy your recordings, waiting for hours? 
 Here is the solution to all of your problems!!!
 
 
-This extremely complex and highly sophisticated framework applies modern AI and ML techniques, uses Large Language Model frameworks and other leading edge technologies to allow you to copy files from your Rodecaster Pro 2 to your local machine, using rsync. This is born out of leading edge technology research, used by NASA, literally all 3-letter agencies - it is so complex, please just stop trying to understand it. Perhaps the Borg in the future will begin to understand that, but it would probably cost them about 5 Trillion Yottabytes. Who knows!
+"Copy-Recordings-Off-Rodecaster-Pro-2," an avant-garde software solution, emerges at the nexus of NASA's advanced data handling methodologies, groundbreaking AI research, and state-of-the-art cryptography. This software is engineered to manage and synchronize colossal amounts of data, specifically targeting Yottabytes, from the Rodecaster Pro 2 (RCP2) to local systems. Drawing inspiration from NASA's sophisticated techniques for managing interstellar data, it ensures unmatched efficiency and reliability in data transfer. Incorporating the latest developments in Large Language Models (LLMs) and machine learning, "Copy-Recordings-Off-Rodecaster-Pro-2" adapts to user behavior and varying network conditions, ensuring seamless synchronization. Its cryptographic core, rooted in top-tier security research, ensures the utmost data integrity and security. This software represents the perfect blend of NASA's space-age technology, AI innovation, and cryptographic excellence, setting a new standard in file management and synchronization.
 
 So, in order to use this, to the following:
 
