@@ -13,7 +13,7 @@ So, in order to use this, to the following:
 
 - create a local pem file and configure that appropriately
 - configure so that you don't have to supply a password to ssh into the RCP2 (needs an entry in: .ssh/config)
-- configure the rsync binary provided in the repository to your RCP2
+- copy the rsync binary provided in the repository to your RCP2 /usr/bin
 - the use the provided script to rsync the files
 
 And you are done.
