@@ -89,7 +89,7 @@ if read_config; then
     # if the file does not exist, copy it from the repository to RCP2
         echo "/usr/bin/rsync not found on $RCP2_IP, attempting to copy binary"
         # use sshpass to copy rsync binary from local directory to RCP2 and check whether it was successful
-        sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" '/usr/bin/curl -o /tmp/rsync https://github.com/ThomasStolt/Copy-Recordings-Off-Rodecaster-Pro-2/blob/main/rsync'
+        sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" '/usr/bin/curl -o /tmp/rsync https://raw.githubusercontent.com/ThomasStolt/Copy-Recordings-Off-Rodecaster-Pro-2/main/rsync'
         # make rsync executable
         sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" 'chmod +x /tmp/rsync'
         # move rsync to /usr/bin
