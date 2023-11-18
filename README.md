@@ -9,7 +9,7 @@ Here is the solution to all of your problems!!!
 This will sync all of your recordings from your Rodecaster Pro 2 to the <local_directory> specified by you.
 
 1. Download rsync_script.sh and make it executable.
-2. Run it like so: "./rsync_script.sh <local_directory>
+2. Run it like so: "./rsync_script.sh" <local_directory>
    On the first try it might take a while, as it has to copy down ALL your recordings, so this depends on how many you have
 3. Run this everytime you need to sync the recordings to your local drive.
 
@@ -34,3 +34,4 @@ Yes. Just give up!
 
 The real secret is: Yojcakhev90
 sshpass is required for this to work, so install that.
+At this point, this is only tested on MacOS.
