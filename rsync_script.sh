@@ -35,12 +35,6 @@ read_config() {
     return 1
 }
 
-# Placeholder function for other tasks
-other_tasks() {
-    echo "Performing other tasks..."
-    # Add your other tasks here
-}
-
 # Function to update configuration file with IP
 update_config() {
     local ip="$1"
@@ -80,7 +74,27 @@ progress_bar() {
 
 # Main
 if read_config; then
-    other_tasks
+    # check whether port 22 is open on remote device
+    if nc -z -w1 "$RCP2_IP" 22; then
+        echo "SSH Port on $RCP2_IP is open"
+    else
+        echo "Device not found."
+        exit 1
+    fi
+    # check whether /usr/bin/rsync exists on remote device, using user root and password Yojcakhev90
+    if sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" '[ -f /usr/bin/rsync ]'; then
+        echo "Rsync exists on $RCP2_IP"
+    else
+        echo "/usr/bin/rsync not found on $RCP2_IP, copying binary over"
+        # sshpass -p "Yojcakhev90" scp -o StrictHostKeyChecking=no rsync root@"$RCP2_IP":/usr/bin/rsync
+
+    fi
+
+
+
+
+
+    echo "Performing other tasks..."
 else
     echo "Searching for Rodecaster Pro 2 in your local network..."
     network_prefix=$(get_network_prefix)

@@ -6,6 +6,7 @@ Are you tired of using RODE Central to copy your recordings, waiting for hours? 
 
 Here is the solution to all of your problems!!!
 
+I will try to explain this, but I suggest you just accept this as working. This is far to complicated for you, so forget it!
 
 "Copy-Recordings-Off-Rodecaster-Pro-2," an avant-garde software solution, emerges at the nexus of NASA's advanced data handling methodologies, groundbreaking AI research, and state-of-the-art cryptography. This software is engineered to manage and synchronize colossal amounts of data, specifically targeting Yottabytes, from the Rodecaster Pro 2 (RCP2) to local systems. Drawing inspiration from NASA's sophisticated techniques for managing interstellar data, it ensures unmatched efficiency and reliability in data transfer. Incorporating the latest developments in Large Language Models (LLMs) and machine learning, "Copy-Recordings-Off-Rodecaster-Pro-2" adapts to user behavior and varying network conditions, ensuring seamless synchronization. Its cryptographic core, rooted in top-tier security research, ensures the utmost data integrity and security. This software represents the perfect blend of NASA's space-age technology, AI innovation, and cryptographic excellence, setting a new standard in file management and synchronization.
 
@@ -23,3 +24,4 @@ Awesome! Again, stop trying to understand it. When I asked ChatGPT, it broke dow
 Yes. Just give up!
 
 The real secret is: Yojcakhev90
+sshpass is required for this to work, so install that.
