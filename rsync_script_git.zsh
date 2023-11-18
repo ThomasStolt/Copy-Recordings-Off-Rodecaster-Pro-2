@@ -10,7 +10,7 @@ fi
 LOCAL_DIR="$1"
 
 # Remote details
-REMOTE_USER_HOST="root@<your_RCP2_IP_address"
+REMOTE_USER_HOST="root@192.168.2.115"
 REMOTE_DIR="/Application/sd-card-mount/RODECaster"
 
 # Rsync command
