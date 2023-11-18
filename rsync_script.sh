@@ -74,27 +74,46 @@ progress_bar() {
 
 # Main
 if read_config; then
-    # check whether port 22 is open on remote device
+    # check whether port 22 is open on RCP2
     if nc -z -w1 "$RCP2_IP" 22; then
         echo "SSH Port on $RCP2_IP is open"
     else
-        echo "Device not found."
+        echo "Device does not have SSH enabled."
         exit 1
     fi
-    # check whether /usr/bin/rsync exists on remote device, using user root and password Yojcakhev90
-    if sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" '[ -f /usr/bin/rsync ]'; then
-        echo "Rsync exists on $RCP2_IP"
-    else
-        echo "/usr/bin/rsync not found on $RCP2_IP, copying binary over"
-        # sshpass -p "Yojcakhev90" scp -o StrictHostKeyChecking=no rsync root@"$RCP2_IP":/usr/bin/rsync
 
+    # check whether /usr/bin/rsync exists on RCP2, using user root and password Yojcakhev90
+    if sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" '[ -f /usr/bin/rsync ]'; then
+        echo "/usr/bin/rsync exists on $RCP2_IP"
+    else
+    # if the file does not exist, copy it from the repository to RCP2
+        echo "/usr/bin/rsync not found on $RCP2_IP, attempting to copy binary"
+        # use sshpass to copy rsync binary from local directory to RCP2 and check whether it was successful
+        sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" '/usr/bin/curl -o /tmp/rsync https://github.com/ThomasStolt/Copy-Recordings-Off-Rodecaster-Pro-2/blob/main/rsync'
+        # make rsync executable
+        sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" 'chmod +x /tmp/rsync'
+        # move rsync to /usr/bin
+        sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" 'cp /tmp/rsync /usr/bin'
     fi
 
+    # =====================
+    # Now we can start with syncing the recordings from your RCP2 to your local directory, that you specified as an argument to this script
+    # =====================
 
+    # Check if an argument was provided to this script
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 <local_directory_path>"
+        exit 1
+    fi
 
+    # run rsync command
+    # Local directory path
+    LOCAL_DIR="$1"
+    REMOTE_DIR="/Application/sd-card-mount/RODECaster"
+    # rsync command
+    /opt/homebrew/bin/rsync -avh --progress "$RCP2_IP":"$REMOTE_DIR/" "$LOCAL_DIR" --info=progress2
+    echo "Sync complete."
 
-
-    echo "Performing other tasks..."
 else
     echo "Searching for Rodecaster Pro 2 in your local network..."
     network_prefix=$(get_network_prefix)
