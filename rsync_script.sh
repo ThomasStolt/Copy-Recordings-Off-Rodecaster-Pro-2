@@ -145,7 +145,6 @@ else
     # Re-read the configuration file to check for the IP address
     if source "$config_file" && [ -n "$RCP2_IP" ] && is_valid_ip "$RCP2_IP"; then
         echo "Rodecaster Pro 2 found at $RCP2_IP"
-        other_tasks
     else
         echo "Device not found."
     fi
