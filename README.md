@@ -8,6 +8,8 @@ Here is the solution to all of your problems!!!
 
 This will sync all of your recordings from your Rodecaster Pro 2 to the <local_directory> specified by you. First you have to setup SSH key-based authentication between the machine you are running this script from and your RCP2.
 
+## Setup SSH Key-Based Authentication
+
 1. Generate an SSH Key Pair
 First, yo uneed to generate a public/private SSH key pair on your local machine (if you haven't already). Open a terminal and run:
 
@@ -22,10 +24,7 @@ ssh-copy-id root@RCP2_IP
 
 ssh root@<IP_address>
 
-
-and then
-
-
+## Install rsync_script
 
 1. Download rsync_script.sh and make it executable.
 2. Run it like so: "./rsync_script.sh <local_directory>"
