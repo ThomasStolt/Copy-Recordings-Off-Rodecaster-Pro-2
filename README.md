@@ -13,7 +13,8 @@ This will sync all of your recordings from your Rodecaster Pro 2 to the <local_d
 1. Generate an SSH Key Pair
 First, yo uneed to generate a public/private SSH key pair on your local machine (if you haven't already). Open a terminal and run:
 
-ssh-keygen -t rsa -b 4096
+```ssh-keygen -t rsa -b 4096
+```
 
 2. Copy the Public Key to RCP2
 Next, copy your public SSH key to the RCP2. Replace <IP_address> with the IP address of your RCP2:
@@ -24,7 +25,7 @@ ssh-copy-id root@RCP2_IP
 
 ssh root@<IP_address>
 
-4. If the script later is still prompting for a password, you might have to add this to your ./.ssh/config:
+4. If the script later is still prompting for a password, you might have to add this to your ~/.ssh/configi file:
 
 Host <IP_address>
   HostName <IP_address>
