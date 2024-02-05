@@ -13,7 +13,8 @@ This will sync all of your recordings from your Rodecaster Pro 2 to the <local_d
 1. Generate an SSH Key Pair
 First, yo uneed to generate a public/private SSH key pair on your local machine (if you haven't already). Open a terminal and run:
 
-```ssh-keygen -t rsa -b 4096
+```
+ssh-keygen -t rsa -b 4096
 ```
 
 2. Copy the Public Key to RCP2
