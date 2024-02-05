@@ -23,6 +23,8 @@ ssh-copy-id root@RCP2_IP
 ssh root@<IP_address>
 
 
+and then
+
 
 
 1. Download rsync_script.sh and make it executable.
