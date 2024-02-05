@@ -1,15 +1,11 @@
 # Copy-Recordings-Off-Rodecaster-Pro-2
 
-Are you tired of taking the SD Card out of your Rodecaster Pro 2 in order to copy files from the RCP2 to your local machine?
+Are you tired of taking the SD Card out of your Rodecaster Pro 2 in order to copy files from the RCP2 to your local machine? Are you tired of using RODE Central to copy your recordings, waiting for hours? Despite the promises of the high speed on it?
 
-Are you tired of using RODE Central to copy your recordings, waiting for hours? Despite the promises of the high speed on it?
-
-Here is the solution to all of your problems!!!
-
-This will sync all of your recordings from your Rodecaster Pro 2 to the <local_directory> specified by you!
+Here is the solution to all of your problems!!! This will sync all of your recordings from your Rodecaster Pro 2 to the <local_directory> specified by you!
 
 In order to get this going, you have to do 2 steps:
-1. First you have to setup SSH key-based authentication between the machine you are running this script from and your RCP2.
+1. First you have to setup SSH key-based authentication.
 2. Second you have to install the rsync_script.
 
 ## Setup SSH Key-Based Authentication
@@ -34,19 +30,19 @@ ssh-copy-id root@RCP2_IP
 ssh root@<IP_address>
 ```
 
-4. If the script later is still prompting for a password, you might have to add this to your ~/.ssh/configi file:
+4. If the script later is still prompting for a password, you might have to add this to your ~/.ssh/config file:
 
 ```
 Host <IP_address>
   HostName <IP_address>
   User root
-  IdentityFile "/Users/<username>/.ssh/macbook.pem"
+  IdentityFile "/Users/<username>/.ssh/pub_key.pem"
 ```
 
 
 ## Install rsync_script
 
-1. Download rsync_script.sh and make it executable.
+1. Download `rsync_script.sh` and make it executable.
 2. Run it like so: `./rsync_script.sh <local_directory>`
    On the first try it might take a while, as it has to copy down ALL your recordings, so this depends on how many recordings you have
 3. Run this everytime you need to sync the recordings to your local drive.
