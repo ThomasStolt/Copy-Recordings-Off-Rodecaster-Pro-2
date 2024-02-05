@@ -6,7 +6,24 @@ Are you tired of using RODE Central to copy your recordings, waiting for hours? 
 
 Here is the solution to all of your problems!!!
 
-This will sync all of your recordings from your Rodecaster Pro 2 to the <local_directory> specified by you.
+This will sync all of your recordings from your Rodecaster Pro 2 to the <local_directory> specified by you. First you have to setup SSH key-based authentication between the machine you are running this script from and your RCP2.
+
+1. Generate an SSH Key Pair
+First, yo uneed to generate a public/private SSH key pair on your local machine (if you haven't already). Open a terminal and run:
+
+ssh-keygen -t rsa -b 4096
+
+2. Copy the Public Key to RCP2
+Next, copy your public SSH key to the RCP2. Replace <IP_address> with the IP address of your RCP2:
+
+ssh-copy-id root@RCP2_IP
+
+3. Verify that you can now SSH into the RCP2 without a password, try:
+
+ssh root@<IP_address>
+
+
+
 
 1. Download rsync_script.sh and make it executable.
 2. Run it like so: "./rsync_script.sh <local_directory>"

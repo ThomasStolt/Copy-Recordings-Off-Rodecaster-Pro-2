@@ -137,7 +137,6 @@ else
         # move rsync to /usr/bin
         sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" 'cp /tmp/rsync /usr/bin'
     fi
-
     # Check if an argument was provided to this script
     if [ "$#" -ne 1 ]; then
         echo "Usage: $0 <local_directory_path>"
