@@ -43,7 +43,7 @@ Host <IP_address>
 ## Install rsync_script
 
 1. Download rsync_script.sh and make it executable.
-2. Run it like so: "./rsync_script.sh <local_directory>"
+2. Run it like so: `inline ./rsync_script.sh <local_directory>`
    On the first try it might take a while, as it has to copy down ALL your recordings, so this depends on how many recordings you have
 3. Run this everytime you need to sync the recordings to your local drive.
 
