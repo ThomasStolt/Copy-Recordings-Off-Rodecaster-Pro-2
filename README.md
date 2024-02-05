@@ -20,19 +20,24 @@ ssh-keygen -t rsa -b 4096
 2. Copy the Public Key to RCP2
 Next, copy your public SSH key to the RCP2. Replace <IP_address> with the IP address of your RCP2:
 
+```
 ssh-copy-id root@RCP2_IP
+```
 
 3. Verify that you can now SSH into the RCP2 without a password, try:
 
+```
 ssh root@<IP_address>
+```
 
 4. If the script later is still prompting for a password, you might have to add this to your ~/.ssh/configi file:
 
+```
 Host <IP_address>
   HostName <IP_address>
   User root
   IdentityFile "/Users/<username>/.ssh/macbook.pem"
-
+```
 
 
 ## Install rsync_script
