@@ -24,6 +24,15 @@ ssh-copy-id root@RCP2_IP
 
 ssh root@<IP_address>
 
+4. If the script later is still prompting for a password, you might have to add this to your ./.ssh/config:
+
+Host <IP_address>
+  HostName <IP_address>
+  User root
+  IdentityFile "/Users/<username>/.ssh/macbook.pem"
+
+
+
 ## Install rsync_script
 
 1. Download rsync_script.sh and make it executable.
