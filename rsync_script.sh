@@ -148,6 +148,6 @@ else
     REMOTE_DIR="/Application/sd-card-mount/RODECaster"
 
     # rsync command
-    /opt/homebrew/bin/rsync -avh --progress "$RCP2_IP":"$REMOTE_DIR/" "$LOCAL_DIR" --info=progress2
+    /opt/homebrew/bin/rsync -avh --progress -e "ssh -i ~/macbook.pem" root@"$RCP2_IP":"$REMOTE_DIR/" "$LOCAL_DIR" --info=progress2
     echo "Sync complete."
 fi
