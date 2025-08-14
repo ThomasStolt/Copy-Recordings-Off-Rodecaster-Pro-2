@@ -1,3 +1,14 @@
+
+# Update of RODECaster Firmware 1.6.5 disables password login
+
+On July 30th 2025, RODE released a new firmware version 1.6.5, in which they disabled password based logins by changing "PasswordAuthentication" to "no" in the /etc/ssh/sshd_config file.
+
+This now makes it impossible to access the Rodecaster Pro 2 via SSH login.
+
+Thank you RODE!
+
+
+
 # Copy-Recordings-Off-Rodecaster-Pro-2
 
 Are you tired of taking the SD Card out of your Rodecaster Pro 2 in order to copy files from the RCP2 to your local machine? Are you tired of using ~~RODE Central~~ RODE App to copy your recordings, waiting for hours? Despite the promises of the high speed on it?
@@ -39,7 +50,6 @@ Host <IP_address>
   IdentityFile "/Users/<username>/.ssh/id_ed25519"
 ```
 
-
 ## Install rsync_script
 
 1. Download `rsync_script.sh` and make it executable.
@@ -49,16 +59,6 @@ Host <IP_address>
 
 Note: the /usr/bin/rsync that comes with the RCP2 does not work with this script. Therefore, we provide a statically linked rsync here, that works. Save your original rsync binary somewhere and replace it with this on your RCP2. Use SFTP to copy files off or onto your RCP2.
 Note 2: when you are doing a FW upgrade, the RCP2 will lose your pub key in authorized_keys. So you might need to redo the steps from above.
-
-Just magic.
-
-I will try to explain this, but I suggest you just accept this as working. This is far to complicated for you. So forget it!
-
-"Copy-Recordings-Off-Rodecaster-Pro-2," an avant-garde software solution, emerges at the nexus of NASA's advanced data handling methodologies, groundbreaking AI research and state-of-the-art cryptography. This software is engineered to manage and synchronize colossal amounts of data, specifically targeting Yottabytes, from the Rodecaster Pro 2 (RCP2) to local systems through satellite connections and undersea cables. Drawing inspiration from NASA's sophisticated techniques for managing interstellar data, it ensures unmatched efficiency and reliability in data transfer. Incorporating the latest developments in Agentic AI and machine learning, "Copy-Recordings-Off-Rodecaster-Pro-2" adapts to user behavior and varying network conditions, ensuring seamless synchronization. Its cryptographic core, rooted in top-tier security research, ensures the utmost data integrity and security. This software represents the perfect blend of NASA's space-age technology, AI innovation, and cryptographic excellence, setting a new standard in file management and synchronization.
-
-Awesome! Again, stop trying to understand it. When I asked ChatGPT, it broke down and took half the internet with it. So, give up!
-
-Yes. Just give up!
 
 Do not commit secrets. Use SSH keys or export `RCP2_PASSWORD` at runtime if password auth is required.
 
