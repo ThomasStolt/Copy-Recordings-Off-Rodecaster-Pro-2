@@ -1,1 +1,12 @@
+# Local config and artifacts
 rsync_script.cfg
+rsync_script.local.cfg
+.env
+.env.local
+
+# Logs and temporary files
+logs/
+*.log
+
+# macOS
+.DS_Store

@@ -36,7 +36,7 @@ ssh root@<IP_address>
 Host <IP_address>
   HostName <IP_address>
   User root
-  IdentityFile "/Users/<username>/.ssh/pub_key.pem"
+  IdentityFile "/Users/<username>/.ssh/id_ed25519"
 ```
 
 
@@ -60,7 +60,7 @@ Awesome! Again, stop trying to understand it. When I asked ChatGPT, it broke dow
 
 Yes. Just give up!
 
-The real secret is: Yojcakhev90
+Do not commit secrets. Use SSH keys or export `RCP2_PASSWORD` at runtime if password auth is required.
 
 sshpass is required for this to work, so install that.
 

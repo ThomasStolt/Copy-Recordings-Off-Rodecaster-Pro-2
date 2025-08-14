@@ -3,6 +3,13 @@
 # Configuration file path
 config_file="rsync_script.cfg"
 
+# Optional: password-based auth via env var (prefer SSH keys!)
+if [ -n "$RCP2_PASSWORD" ]; then
+    SSH_CMD=(sshpass -p "$RCP2_PASSWORD" ssh -o StrictHostKeyChecking=no)
+else
+    SSH_CMD=(ssh -o StrictHostKeyChecking=no)
+fi
+
 # Function to validate IP address
 is_valid_ip() {
     local ip=$1
@@ -124,18 +131,18 @@ else
     fi
 
     # check whether /usr/bin/rsync exists on RCP2
-    if sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" '[ -f /usr/bin/rsync ]'; then
+    if "${SSH_CMD[@]}" root@"$RCP2_IP" '[ -f /usr/bin/rsync ]'; then
         echo "/usr/bin/rsync exists on $RCP2_IP"
     else
 
     # if the file does not exist, copy it from the repository to RCP2
         echo "/usr/bin/rsync not found on $RCP2_IP, attempting to copy binary"
         # use sshpass to copy rsync binary from local directory to RCP2 and check whether it was successful
-        sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" '/usr/bin/curl -o /tmp/rsync https://raw.githubusercontent.com/ThomasStolt/Copy-Recordings-Off-Rodecaster-Pro-2/main/rsync'
+        "${SSH_CMD[@]}" root@"$RCP2_IP" '/usr/bin/curl -o /tmp/rsync https://raw.githubusercontent.com/ThomasStolt/Copy-Recordings-Off-Rodecaster-Pro-2/main/rsync'
         # make rsync executable
-        sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" 'chmod +x /tmp/rsync'
+        "${SSH_CMD[@]}" root@"$RCP2_IP" 'chmod +x /tmp/rsync'
         # move rsync to /usr/bin
-        sshpass -p "Yojcakhev90" ssh -o StrictHostKeyChecking=no root@"$RCP2_IP" 'cp /tmp/rsync /usr/bin'
+        "${SSH_CMD[@]}" root@"$RCP2_IP" 'cp /tmp/rsync /usr/bin'
     fi
     # Check if an argument was provided to this script
     if [ "$#" -ne 1 ]; then
@@ -148,6 +155,6 @@ else
     REMOTE_DIR="/Application/sd-card-mount/RODECaster"
 
     # rsync command
-    /opt/homebrew/bin/rsync -avh --progress -e "ssh -i ~/macbook.pem" root@"$RCP2_IP":"$REMOTE_DIR/" "$LOCAL_DIR" --info=progress2
+    /opt/homebrew/bin/rsync -avh --progress -e "ssh" root@"$RCP2_IP":"$REMOTE_DIR/" "$LOCAL_DIR" --info=progress2
     echo "Sync complete."
 fi
