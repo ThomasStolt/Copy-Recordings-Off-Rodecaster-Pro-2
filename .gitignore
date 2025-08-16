@@ -3,6 +3,7 @@ rsync_script.cfg
 rsync_script.local.cfg
 .env
 .env.local
+rsync
 
 # Logs and temporary files
 logs/
