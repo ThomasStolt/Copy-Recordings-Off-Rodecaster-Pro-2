@@ -1,9 +1,9 @@
 # 1. If you follow the instructions in this repository you may potentially brick your precious RCP2!
-.
+⛔
 # 2. If you have read 1. and are still following along, you are doing so at your own risk!
-.
+⚠️
 # 3. Go back to 1. and read again what it says!
-.
+🔄
 # News Flash ==> Update of RCP2 Firmware 1.6.5 disables password login
 
 The firmware 1.6.5 released on 30/07/2025 disables password based logins, a line in ```/etc/ssh/sshd_config``` was changed from:
